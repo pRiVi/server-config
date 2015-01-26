@@ -83,7 +83,7 @@ echo "(I) This server will have the internal IP address: $addr"
 
 if [ ! -f /root/scripts/update.sh ]; then
 	echo "(I) Create /root/scripts/"
-	apt-get install --assume-yes python3 python3-jsonschema
+	apt-get install --assume-yes python python-jsonschema
 	cp -rf scripts /root/
 
 	if [ -n "$community_id" ]; then
@@ -152,7 +152,7 @@ if ! is_installed "alfred"; then
 	VERSION=2014.4.0
 
 	echo "(I) Install batman-adv, batctl and alfred ($VERSION)."
-	apt-get install --assume-yes wget build-essential linux-headers-$(uname -r) pkg-config libnl-3-dev libjson-c-dev
+	apt-get install --assume-yes wget build-essential linux-headers-$(uname -r) pkg-config libnl-3-dev libjson-glib-dev
 
 	#install batman-adv
 	wget --no-check-certificate http://downloads.open-mesh.org/batman/releases/batman-adv-$VERSION/batman-adv-$VERSION.tar.gz
@@ -188,7 +188,7 @@ fi
 if ! is_installed "fastd"; then
 	echo "(I) Install fastd."
 
-	apt-get install --assume-yes git cmake-curses-gui libnacl-dev flex bison libcap-dev pkg-config zip libjson-c-dev
+	apt-get install --assume-yes git cmake-curses-gui libnacl-dev flex bison libcap-dev pkg-config zip libjson-glib-dev
 
 	#install libsodium
 	wget --no-check-certificate http://github.com/jedisct1/libsodium/releases/download/1.0.0/libsodium-1.0.0.tar.gz
